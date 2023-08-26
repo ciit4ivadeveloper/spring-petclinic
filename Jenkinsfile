@@ -1,12 +1,7 @@
 #!groovy
 
 pipeline {
-  agent any
-  environment {
-      // Definir variables de entorno para la configuración de SonarQube
-      SONAR_HOST_URL = credentials('http://localhost:9000') // Credencial de URL de SonarQube
-      SONAR_LOGIN = credentials('02ade3e1025b7188495e01483bd317be0cc74dec') // Credencial de token de acceso a SonarQube
-  }
+  agent none
   stages {
     stage('Maven Install') {
       agent {
