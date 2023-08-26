@@ -19,7 +19,6 @@ pipeline {
         sh 'docker build -t grupo04/spring-petclinic:latest .'
       }
     }
-
     stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv(credentialsId: 'sonarqube-secret', installationName: 'sonarqube-server') {
