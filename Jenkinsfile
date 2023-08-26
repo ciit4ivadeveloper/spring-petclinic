@@ -22,7 +22,7 @@ pipeline {
     stage('SonarQube analysis') {
       agent any
       steps {
-        withSonarQubeEnv(credentialsId: 'sonarqube-secret', installationName: 'sonarqube-server') { 
+        withMaven(maven : 'mvn-3.6.3') {
             sh 'mvn sonar:sonar'
           }
       } 
