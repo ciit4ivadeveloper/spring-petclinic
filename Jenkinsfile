@@ -19,7 +19,8 @@ pipeline {
         sh 'docker build -t grupo04/spring-petclinic:latest .'
       }
     }
-    stage('Junit Test') {  
+    stage('Junit Test') {
+      agent any
       steps { 
             sh 'mvn clean compile test' 
       } 
