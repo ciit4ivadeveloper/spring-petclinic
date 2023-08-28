@@ -19,12 +19,9 @@ pipeline {
         sh 'docker build -t grupo04/spring-petclinic:latest .'
       }
     }
-    stage('SonarQube analysis') {
-      agent any
-      steps {
-        withMaven(maven : 'mvn-3.6.3') {
-            sh 'mvn sonar:sonar'
-          }
+    stage('Junit Test') {  
+      steps { 
+            sh 'mvn clean compile test' 
       } 
     } 
   }
