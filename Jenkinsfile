@@ -14,11 +14,11 @@ pipeline {
         }
       }
     }
-    
-    stage('Build') {
+
+    stage('Junit') {
       steps {
         withMaven(maven : 'mvn-3.5.0') {
-           sh 'docker build -t grupo04/spring-petclinic:latest .'
+           sh 'mvn clean compile test'
         }
       }
     } 
