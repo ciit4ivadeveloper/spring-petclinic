@@ -15,6 +15,14 @@ pipeline {
       }
     }
 
+    stage('Docker Build') {
+      steps {
+        withMaven(maven : 'mvn-3.5.0') {
+           sh 'docker build -t grupo04/spring-petclinic:latest .'
+        }
+      }
+    } 
+
     stage('Junit') {
       steps {
         withMaven(maven : 'mvn-3.5.0') {
